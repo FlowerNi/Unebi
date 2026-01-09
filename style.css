@@ -28,15 +28,6 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  overflow-x: hidden;
-  width: 100%;
-}
-
-html {
-  scroll-behavior: smooth;
-}
 
 /* Ensure images don't overflow */
 img {
@@ -44,15 +35,6 @@ img {
   height: auto;
 }
 
-/* ============================================
-   Page Wrapper
-   ============================================ */
-.page-wrapper {
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-  overflow-x: hidden;
-}
 
 /* ============================================
    Header
@@ -61,7 +43,7 @@ img {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  right: 0;
   height: var(--header-height);
   background-color: var(--color-white);
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
@@ -69,8 +51,9 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 20px;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 .header__container {
@@ -82,6 +65,8 @@ img {
   justify-content: space-between;
   gap: 32px;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0 auto;
 }
 
 .header__left {
@@ -186,6 +171,17 @@ img {
 }
 
 /* ============================================
+   Main Content Wrapper
+   ============================================ */
+.main-content {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  margin-top: var(--header-height);
+}
+
+/* ============================================
    Hero Section
    ============================================ */
 .hero {
@@ -195,10 +191,9 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: var(--header-height);
+  margin-top: 0;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%);
   overflow: hidden;
-
 }
 
 .hero__bg-image {
@@ -573,7 +568,6 @@ img {
 
 .business__diagram {
   display: flex;
-  width: 100%;
   align-items: center;
   justify-content: center;
   gap: 10px;
@@ -1046,10 +1040,10 @@ img {
   /* Scale padding proportionally based on viewport width */
   /* Use viewport-based calculation to maintain 1440px content width with proportional padding */
   .header__container {
-    padding-left: max(20px, min(240px, calc((100vw - 1440px) / 2 + 20px)));
-    padding-right: max(20px, min(240px, calc((100vw - 1440px) / 2 + 20px)));
+    padding-left: max(20px, min(240px, calc((100% - 1440px) / 2 + 20px)));
+    padding-right: max(20px, min(240px, calc((100% - 1440px) / 2 + 20px)));
     width: 100%;
-    max-width: min(1440px, calc(100vw - 40px));
+    max-width: min(1440px, calc(100% - 40px));
   }
 
   .header__logo {
@@ -1074,30 +1068,35 @@ img {
   }
 
   .hero__content {
-    padding-left: max(20px, min(240px, calc((100vw - 1440px) / 2 + 20px)));
-    padding-right: max(20px, min(240px, calc((100vw - 1440px) / 2 + 20px)));
+    padding-left: max(20px, min(240px, calc((100% - 1440px) / 2 + 20px)));
+    padding-right: max(20px, min(240px, calc((100% - 1440px) / 2 + 20px)));
   }
 
   .section__container {
-    padding-left: max(20px, min(240px, calc((100vw - 1440px) / 2 + 20px)));
-    padding-right: max(20px, min(240px, calc((100vw - 1440px) / 2 + 20px)));
+    padding-left: max(20px, min(240px, calc((100% - 1440px) / 2 + 20px)));
+    padding-right: max(20px, min(240px, calc((100% - 1440px) / 2 + 20px)));
     padding-top: clamp(80px, 8vw, 150px);
     padding-bottom: clamp(60px, 6vw, 120px);
   }
 
+  .footer {
+    padding-left: max(20px, min(240px, calc((100% - 1440px) / 2 + 20px)));
+    padding-right: max(20px, min(240px, calc((100% - 1440px) / 2 + 20px)));
+  }
+
   .footer__top {
-    padding-left: max(20px, min(240px, calc((100vw - 1440px) / 2 + 20px)));
-    padding-right: max(20px, min(240px, calc((100vw - 1440px) / 2 + 20px)));
+    padding-left: max(20px, min(240px, calc((100% - 1440px) / 2 + 20px)));
+    padding-right: max(20px, min(240px, calc((100% - 1440px) / 2 + 20px)));
   }
 
   .footer__contact {
-    padding-left: max(20px, min(240px, calc((100vw - 1440px) / 2 + 20px)));
-    padding-right: max(20px, min(240px, calc((100vw - 1440px) / 2 + 20px)));
+    padding-left: max(20px, min(240px, calc((100% - 1440px) / 2 + 20px)));
+    padding-right: max(20px, min(240px, calc((100% - 1440px) / 2 + 20px)));
   }
 
   .footer__copyright {
-    padding-left: max(20px, min(240px, calc((100vw - 1440px) / 2 + 20px)));
-    padding-right: max(20px, min(240px, calc((100vw - 1440px) / 2 + 20px)));
+    padding-left: max(20px, min(240px, calc((100% - 1440px) / 2 + 20px)));
+    padding-right: max(20px, min(240px, calc((100% - 1440px) / 2 + 20px)));
   }
 
   /* Scale font sizes responsively */
@@ -1155,15 +1154,15 @@ img {
   }
   /* Ensure containers don't overflow */
   .section__container {
-    max-width: min(1440px, calc(100vw - 40px));
+    max-width: min(1440px, calc(100% - 40px));
   }
 
   .header__container {
-    max-width: min(1440px, calc(100vw - 40px));
+    max-width: min(1440px, calc(100% - 40px));
   }
 
   .hero__content {
-    max-width: min(1440px, calc(100vw - 40px));
+    max-width: min(1440px, calc(100% - 40px));
   }
 }
 
@@ -1171,11 +1170,6 @@ img {
    Responsive Design - Tablet (768px - 1024px)
    ============================================ */
 @media screen and (max-width: 1024px) {
-  .page-wrapper {
-    overflow-x: hidden;
-  }
-
-
   .header__nav {
     gap: 20px;
     padding: 9px 10px;
@@ -1374,19 +1368,13 @@ img {
     --header-height: 70px;
   }
 
-  .page-wrapper {
-    overflow-x: hidden;
-  }
-
   .header {
     height: var(--header-height);
-    padding-block: 10px;
   }
 
   .header__container {
-    height: auto;
-    min-height: 48px;
     gap: 4px;
+    padding: 0 20px;
   }
 
   .header__left {
